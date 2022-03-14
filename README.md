@@ -1,8 +1,7 @@
-# Single-cell-sequencing-in-the-V-SVZ
 
-What have single-cell transcriptomics have taught us about lncRNAs in the V-SVZ?
+# What have single-cell transcriptomics have taught us about lncRNAs in the V-SVZ?
 
-# Abstract
+## Abstract
 
 NB ABSTRACT FROM CURRENT DRAFT NOT FINALISED
 
@@ -14,6 +13,6 @@ The ventricular-subventricular zone (V-SVZ) is a neurogenic stem cell niche that
 
 A large number of papers have recently described V-SVZ transcriptomics and in this review we have analysed those from which information on lncRNAs can be extracted. Several interesting patterns emerge. Pooling of scRNAseq data has revealed consistent trends in lncRNA expression both during stem cell activation and lineage progression, as well as during ageing. Taking these results in conjunction with epigenetic and genetic data has allowed prediction of lncRNA genes that may be acting to regulate stem cell activation and differentiation. Some of the predicted lncRNAs have been shown to be important for the regulation of neurogenesis via epigenetic mechanisms (such as Dlx6as), thus validating this approach. However, many remain uninvestigated. 
 
-# This repository
+## This repository
 
 This repository contains all code used in the paper "What have single-cell transcriptomics have taught us about lncRNAs in the V-SVZ?"
