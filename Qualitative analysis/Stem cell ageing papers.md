@@ -1,9 +1,10 @@
 ---
-title: "Differential expression with ageing"
+title: "aging new"
 author: "Jemima Becker"
-date: "22/02/2022"
-output: word_document
+date: "24/03/2022"
+output: html_document
 ---
+
 ## Papers
 Kalamakis, G., Brüne, D., Ravichandran, S., Bolz, J., Fan, W., Ziebell, F., Stiehl, T., Catalá-Martinez, F., Kupke, J., Zhao, S., et al. (2019). Quiescence Modulates Stem Cell Maintenance and Regenerative Capacity in the Aging Brain. Cell 176, 1407-1419.e14.
 Xie, X.P., Laks, D.R., Sun, D., Poran, A., Laughney, A.M., Wang, Z., Sam, J., Belenguer, G., Fariñas, I., Elemento, O., et al. (2020). High-resolution mouse subventricular zone stem-cell niche transcriptome reveals features of lineage, anatomy, and aging. PNAS 117, 31448–31458.
@@ -17,7 +18,40 @@ all_ncRNAs_ageing2
 
 ### load data and required packages
 
+```{r}
+library(readr)
+library(biomaRt)
+library(readxl)
+library(dplyr)
+ensembl    <- useEnsembl(biomart="ensembl", dataset="mmusculus_gene_ensembl")
+ensEMBL2id <- getBM(attributes=c('ensembl_gene_id', 'external_gene_name', 'description',
+                                 'chromosome_name', 'start_position', 'end_position', 
+                                 'strand', 'gene_biotype'), 
+                    mart = ensembl)
+
+```
+
+Borett 2020 supp6
+DE in adult dNSC vs E14
+"UP" = increases with age
+"down" = decreases with age
+```{r}
+borrett_supp6 <- read_excel("Borett 2020/1-s2.0-S221112472031007X-mmc7.xlsx")
+
+
+borrett_supp6 <- cbind(borrett_supp6[,1], "Borrett 2020 UP", borrett_supp6[,5],"Borrett 2020 DOWN")
+colnames(borrett_supp6) <- c("external_gene_name","Borett Comparison","external_gene_name","Borett Comparison")
+borrett_supp6 <- borrett_supp6[-c(1:4),]
+borrett_UP <- borrett_supp6[,c(1,2)]
+borrett_down <- borrett_supp6[,c(3,4)]
+borrett_supp6 <- rbind(borrett_supp6[,c(1,2)],borrett_supp6[,c(3,4)])
+```
 Xie et al 2020
+
+Xie Up_DEGs_2M_H1_H2 = down with age
+Xie Up_DEGs_12M_H1_H2 = up with age
+Xie Up_DEGs_2M_H3_L1 = down with age
+Xie Up_DEGs_12M_H3_L1 = up with age
 ```{r setup, include=FALSE}
 library(dplyr)
 library(readr)
@@ -46,96 +80,103 @@ xie_DEGs <- merge(xie_DEGs, Sheet_1_TS3I_Up_DEGs_12M_H3_L1_Fig_7G,
                   by.y="GeneID",
                   all.x=TRUE,
                   all.y=TRUE)
-```
-
-Kalamakis et al 2018
-```{r}
-X23_vs_2_MO_NSCs_Smartseq2_DESe_Table_1 <- read_csv("Kalamakis et al 2018/Kalamakis et al 2018/23 vs 2 MO NSCs Smartseq2 (DESe-Table 1.csv")
-kalamakis_sig <- X23_vs_2_MO_NSCs_Smartseq2_DESe_Table_1 %>% dplyr::filter(X23_vs_2_MO_NSCs_Smartseq2_DESe_Table_1$pvalue < 0.05)
-kalamakis_sig$gene_biotype <- as.factor(kalamakis_sig$gene_biotype)
-levels(kalamakis_sig$gene_biotype)
-kalamakis_ncRNAs <- kalamakis_sig %>% dplyr::filter(kalamakis_sig$gene_biotype ==
-"antisense"                       
-| gene_biotype== "bidirectional_promoter_lncRNA"      
-| gene_biotype== "lincRNA"                           
-| gene_biotype== "misc_RNA"                           
-| gene_biotype== "polymorphic_pseudogene"            
-| gene_biotype== "processed_pseudogene"               
-| gene_biotype== "processed_transcript"                  
-| gene_biotype== "pseudogene"                         
-| gene_biotype== "sense_intronic"                     
-| gene_biotype== "TEC"                               
-| gene_biotype== "transcribed_processed_pseudogene"   
-| gene_biotype== "transcribed_unitary_pseudogene"     
-| gene_biotype== "transcribed_unprocessed_pseudogene"
-| gene_biotype== "unprocessed_pseudogene"   
-| is.na(kalamakis_sig$gene_biotype))
-colnames(kalamakis_ncRNAs)[c(3,6)] <- c("Kalamakis LogFC","Kalamakis PValue")
+colnames(xie_DEGs)[1] <- "external_gene_name"
 ```
 
 add them together 
 ```{r}
-all_ncRNA_ageing <- merge(kalamakis_ncRNAs,xie_DEGs,
-                          by.x="gene_symbol",
-                          by.y="GeneID",
+all_ncRNA_ageing <- merge(borrett_supp6,xie_DEGs,
+                          by.x="external_gene_name",
+                          by.y="external_gene_name",
                           all.x=TRUE,
                           all.y=TRUE)
-all_ncRNA_ageing2 <- all_ncRNA_ageing %>% dplyr::filter(!is.na(all_ncRNA_ageing$gene_symbol)) #removes the terms that could not be annotated because they have depreciated ensembl IDs and are no longer in the database
 
-ageing_pvalues <- as.data.frame(cbind(all_ncRNA_ageing2$gene_symbol,
-all_ncRNA_ageing2$`Kalamakis PValue`,
-all_ncRNA_ageing2$`Xie Up_DEGs_2M_H1_H2 FDR p` ,
-all_ncRNA_ageing2$`Xie Up_DEGs_12M_H1_H2 FDR p`,
-all_ncRNA_ageing2$`Xie Up_DEGs_2M_H3_L1 FDR p` ,
-all_ncRNA_ageing2$`Xie Up_DEGs_12M_H3_L1 FDR p` ))
+```
 
+```{r}
+xie_increasingwithage <- xie_DEGs[,c(1,5,9)]
+xie_decreasingwithage <- xie_DEGs[,c(1,3,7)]
+all_increasing <- merge(xie_increasingwithage,borrett_UP,
+                        by.x="external_gene_name",
+                        by.y="external_gene_name",
+                        all.x=TRUE,
+                        all.y=TRUE)
+all_decreasing <- merge(xie_decreasingwithage,borrett_down,
+                        by.x="external_gene_name",
+                        by.y="external_gene_name",
+                        all.x=TRUE,
+                        all.y=TRUE)
 
-colnames(ageing_pvalues) <- c("external_gene_name",
-                              "Kalamakis PValue",
-                              "Xie Up_DEGs_2M_H1_H2 FDR p",
-                              "Xie Up_DEGs_12M_H1_H2 FDR p",
-                              "Xie Up_DEGs_2M_H3_L1 FDR p",
-                              "Xie Up_DEGs_12M_H3_L1 FDR p")
-
-ageing_lncRNAs_pvalues2 <- ageing_pvalues[,-c(1)]
-
-ageing_lncRNAs_pvalues2$`Kalamakis PValue`<- as.numeric(ageing_lncRNAs_pvalues2$`Kalamakis PValue`)
-ageing_lncRNAs_pvalues2$`Xie Up_DEGs_2M_H1_H2 FDR p` <- as.numeric(ageing_lncRNAs_pvalues2$`Xie Up_DEGs_2M_H1_H2 FDR p`)
-ageing_lncRNAs_pvalues2$`Xie Up_DEGs_12M_H1_H2 FDR p`<- as.numeric(ageing_lncRNAs_pvalues2$`Xie Up_DEGs_12M_H1_H2 FDR p`)
-ageing_lncRNAs_pvalues2$`Xie Up_DEGs_2M_H3_L1 FDR p` <- as.numeric(ageing_lncRNAs_pvalues2$`Xie Up_DEGs_2M_H3_L1 FDR p`)
-ageing_lncRNAs_pvalues2$`Xie Up_DEGs_12M_H3_L1 FDR p` <- as.numeric(ageing_lncRNAs_pvalues2$`Xie Up_DEGs_12M_H3_L1 FDR p`)
-
-ageing_lncRNAs_pvalues_mean <- rowMeans(ageing_lncRNAs_pvalues2, na.rm=TRUE)
-ageing_lncRNAs_means <- cbind(ageing_pvalues$external_gene_name,ageing_lncRNAs_pvalues_mean ,ageing_lncRNAs_pvalues2)  
-
-rank_calc <- ageing_pvalues
+rank_calc <- all_increasing
 names <- rank_calc[,1]
 rank_calc <- rank_calc[,-c(1)]
 rank_calc[!is.na(rank_calc)] <- 1
 rank_calc[is.na(rank_calc)] <- 0
+rank_calc$`Borett Comparison` <- as.numeric(rank_calc$`Borett Comparison`)
+
 ranks <- cbind(names, rank_calc)
 sapply(ranks, class)
 chars <- sapply(rank_calc, is.character)
 rank_calc[ , chars] <- as.data.frame(apply(rank_calc[ , chars], 2, as.numeric))
-summed_ranks <- cbind(names,
+increasing_summed_ranks <- cbind(names,
                       rowSums(rank_calc),
                       rank_calc)
-```
-```{r}
-colnames(ageing_lncRNAs_means)[1] <- "external_gene_name"
-ageing_lncRNAs_means <- cbind(ageing_lncRNAs_means$external_gene_name,summed_ranks$`rowSums(rank_calc)`,ageing_lncRNAs_means[,-c(1)])
+colnames(increasing_summed_ranks)[1] <- "external_gene_name"
+
+
+rank_calc <- all_decreasing
+names <- rank_calc[,1]
+rank_calc <- rank_calc[,-c(1)]
+rank_calc[!is.na(rank_calc)] <- 1
+rank_calc[is.na(rank_calc)] <- 0
+rank_calc$`Borett Comparison` <- as.numeric(rank_calc$`Borett Comparison`)
+
+ranks <- cbind(names, rank_calc)
+sapply(ranks, class)
+chars <- sapply(rank_calc, is.character)
+rank_calc[ , chars] <- as.data.frame(apply(rank_calc[ , chars], 2, as.numeric))
+decreasing_summed_ranks <- cbind(names,
+                      rowSums(rank_calc),
+                      rank_calc)
+colnames(decreasing_summed_ranks)[1] <- "external_gene_name"
 ```
 
 ```{r}
-colnames(ageing_lncRNAs_means)[c(1,2,3)] <- c("external_gene_name","summed_rank","mean_pvalue")
-ageing_lncRNAs_means$summed_rank <- as.numeric(ageing_lncRNAs_means$summed_rank)
-ageing_lncRNAs_means$mean_pvalue <- as.numeric(ageing_lncRNAs_means$mean_pvalue)
-log_pvalues <- -log10(ageing_lncRNAs_means$mean_pvalue)
-multiplied <- ageing_lncRNAs_means$summed_rank*log_pvalues
-ageing_lncRNA_ranks <- cbind(ageing_lncRNAs_means$external_gene_name,multiplied,log_pvalues,ageing_lncRNAs_means[,-c(1)])
-colnames(ageing_lncRNA_ranks)[1:5] <- c("external_gene_name","Ageing multiplied","Ageing -log10(mean pvalue)","Ageing summed ranks","Ageing mean pvalues")
-write.csv(ageing_lncRNA_ranks,"Ageing_lncRNA_ranks_24-02-22.csv")
-write.csv(all_ncRNA_ageing2,"Ageing_lncRNAs_24-02-22.csv")
 
+increasing_summed_ranks <- merge(increasing_summed_ranks, ensEMBL2id,
+                        by.x="external_gene_name",
+                        by.y="external_gene_name",
+                        all.x=TRUE,
+                        all.y=FALSE)
+decreasing_summed_ranks <- merge(decreasing_summed_ranks, ensEMBL2id,
+                        by.x="external_gene_name",
+                        by.y="external_gene_name",
+                        all.x=TRUE,
+                        all.y=FALSE)
+
+increasing_summed_ranks$gene_biotype <- as.factor(increasing_summed_ranks$gene_biotype)
+decreasing_summed_ranks$gene_biotype <- as.factor(decreasing_summed_ranks$gene_biotype)
+
+increasing_summed_ranks <- increasing_summed_ranks %>% dplyr::filter(increasing_summed_ranks$gene_biotype=="lncRNA"
+|gene_biotype=="processed_pseudogene"
+|gene_biotype=="TEC"
+|gene_biotype=="transcribed_processed_pseudogene"
+|gene_biotype=="transcribed_unprocessed_pseudogene"
+|gene_biotype=="unprocessed_pseudogene"
+|is.na(increasing_summed_ranks$gene_biotype))
+
+decreasing_summed_ranks <- decreasing_summed_ranks %>% dplyr::filter(decreasing_summed_ranks$gene_biotype=="lncRNA"
+|gene_biotype=="processed_pseudogene"
+|gene_biotype=="TEC"
+|gene_biotype=="transcribed_processed_pseudogene"
+|gene_biotype=="transcribed_unprocessed_pseudogene"
+|gene_biotype=="unprocessed_pseudogene"
+|is.na(decreasing_summed_ranks$gene_biotype))
+```
+
+
+```{r}
+write.csv(increasing_summed_ranks,"OUTPUT_increasing_with_age.csv")
+write.csv(decreasing_summed_ranks,"OUTPUT_decreasing_with_age.csv")
 
 ```
