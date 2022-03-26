@@ -10,6 +10,8 @@ This code loops through the whole dataset, each column corresponds to the enrich
 
 The code takes each column individually and searches these genes in all 192 databases available via EnrichR, returning a final object final_significant_res that combines all of the significant results.
 
+Time taken to run is dependent on internet connection - this took 57 mins 12 s running via Eduroam
+
 ## Code
 
 ### Required packages
