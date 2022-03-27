@@ -3,11 +3,11 @@
 
 Jemima Becker1, Bin Sun2, Farah Alammari3, Wilfried Haerty4, Keith Vance5, and Francis Szele1
 
-1Department of Physiology Anatomy and Genetics, , University of Oxford, Oxford, UK 
-2Single Cell CRISPR group, Functional Genomics, GSK Medicines Research Centre, Gunnels Wood Road, Stevenage, Hertfordshire, UK
-3King Abdullah International Medical Research Centre, Riyadh, Saudi Arabia
-4Department of Biology and Biochemistry, University of Bath, Bath, UK 
-5Earlham Institute, Norwich Research Park, Norwich, UK
+[1] Department of Physiology Anatomy and Genetics, , University of Oxford, Oxford, UK 
+[2] Single Cell CRISPR group, Functional Genomics, GSK Medicines Research Centre, Gunnels Wood Road, Stevenage, Hertfordshire, UK
+[3]King Abdullah International Medical Research Centre, Riyadh, Saudi Arabia
+[4] Department of Biology and Biochemistry, University of Bath, Bath, UK 
+[5] Earlham Institute, Norwich Research Park, Norwich, UK
 
 ## Highlights
 
