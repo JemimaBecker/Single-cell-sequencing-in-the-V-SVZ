@@ -1,17 +1,28 @@
 
 # What have single-cell transcriptomics have taught us about lncRNAs in the V-SVZ?
 
-## Abstract
+Jemima Becker1, Bin Sun2, Farah Alammari3, Wilfried Haerty4, Keith Vance5, and Francis Szele1
 
-NB ABSTRACT FROM CURRENT DRAFT NOT FINALISED
+1Department of Physiology Anatomy and Genetics, , University of Oxford, Oxford, UK 
+2Single Cell CRISPR group, Functional Genomics, GSK Medicines Research Centre, Gunnels Wood Road, Stevenage, Hertfordshire, UK
+3King Abdullah International Medical Research Centre, Riyadh, Saudi Arabia
+4Department of Biology and Biochemistry, University of Bath, Bath, UK 
+5Earlham Institute, Norwich Research Park, Norwich, UK
 
-The age of mechanism is over - this is the age of descriptive ‘omics. Good because the brain development regulated by a large number of intersecting gene regulatory networks, but ultimately these require functional confirmation. 
+## Highlights
 
-lncRNAs influence these gene regulatory networks, and many are specifically enriched in neural stem cells of the V-SVZ, the largest stem cell niche in the postnatal brain and can function therein to regulate neurogenesis. However they have also been strongly implicated in cancer, and their modulation linked to brain disease and neurodevelopmental disorders. 
+•	lncRNAs abound in the ventricular-subventricular zone
+•	The functions of lncRNAs are obscure, but are implicated in cancer
+•	scRNAseq data has resolved the expression patterns of many V-SVZ lncRNAs
+•	scRNAseq data suggest lncRNAs function in stem cell maintenance and activation
 
-The ventricular-subventricular zone (V-SVZ) is a neurogenic stem cell niche that mounts a regenerative response to brain injury throughout life, and can be induced to generate new neurons to minimise damage, as well as being a source of gliomas. However, the neurogenic capacity of the V-SVZ declines with age due to both neural stem cell (NSC) depletion, as well as NSCs becoming increasingly resistant to activation. Long non-coding RNAs (lncRNAs) are a class of RNA, afforded rich structural and functional diversity by their ability to associate with both proteins and nucleic acids. 
+ 
+## Summary
 
-A large number of papers have recently described V-SVZ transcriptomics and in this review we have analysed those from which information on lncRNAs can be extracted. Several interesting patterns emerge. Pooling of scRNAseq data has revealed consistent trends in lncRNA expression both during stem cell activation and lineage progression, as well as during ageing. Taking these results in conjunction with epigenetic and genetic data has allowed prediction of lncRNA genes that may be acting to regulate stem cell activation and differentiation. Some of the predicted lncRNAs have been shown to be important for the regulation of neurogenesis via epigenetic mechanisms (such as Dlx6as), thus validating this approach. However, many remain uninvestigated. 
+Long non-coding RNAs (lncRNAs), afford functional diversity via protein and chromatin association. LncRNAs influence gene regulatory networks and are enriched in the ventricular-subventricular zone (V-SVZ), the largest postnatal brain stem cell niche. LncRNAs in the V-SVZ are poorly understood but are implicated in neurodevelopmental disorders, cancer, and brain disease. The V-SVZ neurogenic capacity declines with age due to stem cell depletion and NSCs resistance to activation. In this review we analysed V-SVZ transcriptomics by pooling of scRNAseq data. We found consistent lncRNA expression both during stem cell activation, lineage progression and aging. In conjunction with epigenetic and genetic data, we predicted lncRNAs regulate stem cell activation and differentiation. Some lncRNAs validated known epigenetic mechanisms, however, most remain un-investigated. Our analysis points to several lncRNAs that likely participate in key aspects of V-SVZ stem cell activation and neurogenesis in health and disease.
+
+ 
+![image](https://user-images.githubusercontent.com/67189202/160295617-09e7a633-4fb3-4015-bd4f-9fdc88398cab.png)
 
 ## This repository
 
