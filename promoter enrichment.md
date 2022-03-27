@@ -10,6 +10,7 @@ This code loops through the whole dataset, each column corresponds to the enrich
 
 The code takes each column individually and searches these genes in all 192 databases available via EnrichR, returning a final object final_significant_res that combines all of the significant results.
 
+
 Time taken to run is dependent on internet connection - this took 57 mins 12 s running via Eduroam
 
 ## Code
@@ -17,7 +18,6 @@ Time taken to run is dependent on internet connection - this took 57 mins 12 s r
 ### Required packages
 
 ```
-library(dplyr)
 library(dplyr)
 library(enrichR)
 library(base)
@@ -84,4 +84,15 @@ final_significant_res <- final_significant_res %>% dplyr::filter(final_significa
 
 ## Example output
 
+<img width="955" alt="Screenshot 2022-03-27 at 20 26 37" src="https://user-images.githubusercontent.com/67189202/160297444-ad11f8dd-103b-46f3-b69d-78919f4dd2c6.png">
+
 ## References
+
+Chen EY, Tan CM, Kou Y, Duan Q, Wang Z, Meirelles GV, Clark NR, Ma'ayan A.
+Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics. 2013; 128(14).
+
+Kuleshov MV, Jones MR, Rouillard AD, Fernandez NF, Duan Q, Wang Z, Koplev S, Jenkins SL, Jagodnik KM, Lachmann A, McDermott MG, Monteiro CD, Gundersen GW, Ma'ayan A.
+Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research. 2016; gkw377 .
+
+Xie Z, Bailey A, Kuleshov MV, Clarke DJB., Evangelista JE, Jenkins SL, Lachmann A, Wojciechowicz ML, Kropiwnicki E, Jagodnik KM, Jeon M, & Ma’ayan A.
+Gene set knowledge discovery with Enrichr. Current Protocols, 1, e90. 2021. doi: 10.1002/cpz1.90
