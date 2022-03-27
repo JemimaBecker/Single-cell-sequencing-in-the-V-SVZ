@@ -11,18 +11,15 @@ Jemima Becker1, Bin Sun2, Farah Alammari3, Wilfried Haerty4, Keith Vance5, and F
 
 ## Highlights
 
-•	lncRNAs abound in the ventricular-subventricular zone
-•	The functions of lncRNAs are obscure, but are implicated in cancer
-•	scRNAseq data has resolved the expression patterns of many V-SVZ lncRNAs
-•	scRNAseq data suggest lncRNAs function in stem cell maintenance and activation
+- lncRNAs abound in the ventricular-subventricular zone
+- The functions of lncRNAs are obscure, but are implicated in cancer
+- scRNAseq data has resolved the expression patterns of many V-SVZ lncRNAs
+-	scRNAseq data suggest lncRNAs function in stem cell maintenance and activation
 
  
 ## Summary
 
 > Long non-coding RNAs (lncRNAs), afford functional diversity via protein and chromatin association. LncRNAs influence gene regulatory networks and are enriched in the ventricular-subventricular zone (V-SVZ), the largest postnatal brain stem cell niche. LncRNAs in the V-SVZ are poorly understood but are implicated in neurodevelopmental disorders, cancer, and brain disease. The V-SVZ neurogenic capacity declines with age due to stem cell depletion and NSCs resistance to activation. In this review we analysed V-SVZ transcriptomics by pooling of scRNAseq data. We found consistent lncRNA expression both during stem cell activation, lineage progression and aging. In conjunction with epigenetic and genetic data, we predicted lncRNAs regulate stem cell activation and differentiation. Some lncRNAs validated known epigenetic mechanisms, however, most remain un-investigated. Our analysis points to several lncRNAs that likely participate in key aspects of V-SVZ stem cell activation and neurogenesis in health and disease.
-
- 
-![image](https://user-images.githubusercontent.com/67189202/160295617-09e7a633-4fb3-4015-bd4f-9fdc88398cab.png)
 
 ## This repository
 
