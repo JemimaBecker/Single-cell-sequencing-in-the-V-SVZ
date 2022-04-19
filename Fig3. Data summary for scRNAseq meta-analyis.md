@@ -82,7 +82,22 @@ final_significant_res <- final_res
 final_significant_res$padj <- as.numeric(final_significant_res$padj) # format to numeric so that it can be filtered using numeric criteria
 final_significant_res <- final_significant_res %>% dplyr::filter(final_significant_res$padj < 0.05) # filter to significant results
 ```
+### Example output
+
+<img width="955" alt="Screenshot 2022-03-27 at 20 26 37" src="https://user-images.githubusercontent.com/67189202/160297444-ad11f8dd-103b-46f3-b69d-78919f4dd2c6.png">
+
 ## Fig3C step 3: Plot
 
 The number of times that each individual GO term was significant was summed to examine whether there were any terms that were associated with multiple lncRNA promoters.
 This was plotted as a bar graph in Numbers.
+
+## References
+
+Chen EY, Tan CM, Kou Y, Duan Q, Wang Z, Meirelles GV, Clark NR, Ma'ayan A.
+Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics. 2013; 128(14).
+
+Kuleshov MV, Jones MR, Rouillard AD, Fernandez NF, Duan Q, Wang Z, Koplev S, Jenkins SL, Jagodnik KM, Lachmann A, McDermott MG, Monteiro CD, Gundersen GW, Ma'ayan A.
+Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research. 2016; gkw377 .
+
+Xie Z, Bailey A, Kuleshov MV, Clarke DJB., Evangelista JE, Jenkins SL, Lachmann A, Wojciechowicz ML, Kropiwnicki E, Jagodnik KM, Jeon M, & Ma’ayan A.
+Gene set knowledge discovery with Enrichr. Current Protocols, 1, e90. 2021. doi: 10.1002/cpz1.90
