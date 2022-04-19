@@ -68,13 +68,6 @@ final_significant_res <- final_significant_res %>% dplyr::filter(final_significa
 - The number of times that each individual GO term was significant was summed to examine whether there were any terms that were associated with multiple lncRNA promoters.
 - This was plotted as a bar graph in Numbers.
 
-## References
-
-- Chen EY, Tan CM, Kou Y, Duan Q, Wang Z, Meirelles GV, Clark NR, Ma'ayan A. Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics. 2013; 128(14).
-- F.Zambelli, G.Pesole, G.Pavesi, Pscan: Finding Over-represented Transcription Factor Binding Site Motifs in Sequences from Co-Regulated or Co-Expressed Genes. Nucleic Acids Research 2009 37(Web Server issue):W247-W252.
-- Kuleshov MV, Jones MR, Rouillard AD, Fernandez NF, Duan Q, Wang Z, Koplev S, Jenkins SL, Jagodnik KM, Lachmann A, McDermott MG, Monteiro CD, Gundersen GW, Ma'ayan A. Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research. 2016; gkw377 .
-- Xie Z, Bailey A, Kuleshov MV, Clarke DJB., Evangelista JE, Jenkins SL, Lachmann A, Wojciechowicz ML, Kropiwnicki E, Jagodnik KM, Jeon M, & Ma’ayan A. Gene set knowledge discovery with Enrichr. Current Protocols, 1, e90. 2021. doi: 10.1002/cpz1.90
-
 ## Example output
 
 <img width="955" alt="Screenshot 2022-03-27 at 20 26 37" src="https://user-images.githubusercontent.com/67189202/160297444-ad11f8dd-103b-46f3-b69d-78919f4dd2c6.png">
@@ -86,3 +79,10 @@ final_significant_res <- final_significant_res %>% dplyr::filter(final_significa
 | A: Total number of studies in which each lncRNA is differentially expressed across all categories, data is expressed as log2(number of lncRNAs) vs the number of studies that each gene was differentially expressed in. |
 | B: Overlap between lncRNAs differentially expressed with stem cell activation (n=750) and those that are downregulated with ageing (n=28). |
 |C: EnrichR gene ontology results for transcription factors that bind the promoters of lncRNAs downregulated with age. EnrichR was run on PSCAN outputs to find ontologies of transcription factors that bind each promoter, the number of lncRNA promoters that were associated with each GO term is shown. |
+
+## References
+
+- Chen EY, Tan CM, Kou Y, Duan Q, Wang Z, Meirelles GV, Clark NR, Ma'ayan A. Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics. 2013; 128(14).
+- F.Zambelli, G.Pesole, G.Pavesi, Pscan: Finding Over-represented Transcription Factor Binding Site Motifs in Sequences from Co-Regulated or Co-Expressed Genes. Nucleic Acids Research 2009 37(Web Server issue):W247-W252.
+- Kuleshov MV, Jones MR, Rouillard AD, Fernandez NF, Duan Q, Wang Z, Koplev S, Jenkins SL, Jagodnik KM, Lachmann A, McDermott MG, Monteiro CD, Gundersen GW, Ma'ayan A. Enrichr: a comprehensive gene set enrichment analysis web server 2016 update. Nucleic Acids Research. 2016; gkw377 .
+- Xie Z, Bailey A, Kuleshov MV, Clarke DJB., Evangelista JE, Jenkins SL, Lachmann A, Wojciechowicz ML, Kropiwnicki E, Jagodnik KM, Jeon M, & Ma’ayan A. Gene set knowledge discovery with Enrichr. Current Protocols, 1, e90. 2021. doi: 10.1002/cpz1.90
