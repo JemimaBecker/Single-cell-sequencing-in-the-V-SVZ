@@ -1,4 +1,4 @@
-# Data summary for scRNAseq meta-analysis 
+# Fig 3: Data summary for scRNAseq meta-analysis 
 
 <img width="639" alt="Screenshot 2022-04-19 at 13 57 50" src="https://user-images.githubusercontent.com/67189202/164009216-30ee741b-264d-4d9c-8446-53f16fcbf2ef.png">
 
@@ -10,13 +10,15 @@
 
 > C: EnrichR gene ontology results for transcription factors that bind the promoters of lncRNAs downregulated with age. EnrichR was run on PSCAN outputs to find ontologies of transcription factors that bind each promoter, the number of lncRNA promoters that were associated with each GO term is shown.
 
-## 1: Conduct PSCAN
+Bar graphs were plotted in Numbers, and Venn diagram made in PowerPoint.
+
+## Fig3C step 1: Conduct PSCAN
 
 PCAN was conducted via the web server (http://159.149.160.88/pscan/) to examine which transcription factor binding motifs are enriched in the promoters of lncRNAs that are downregulated with age.
 This was conducted in a window -450bp upstream and +50bp downstream of the transcriptional start site for each gene.
 A transcription factor binding site was treated as "enriched" with a PSCAN p<0.05.
 
-## 2: Conduct GO via Enrichr
+## Fig3C step 2: Conduct GO via Enrichr
 
 Enrichr was run individually for the transcritption factors that bound each promoter. 
 
@@ -80,7 +82,7 @@ final_significant_res <- final_res
 final_significant_res$padj <- as.numeric(final_significant_res$padj) # format to numeric so that it can be filtered using numeric criteria
 final_significant_res <- final_significant_res %>% dplyr::filter(final_significant_res$padj < 0.05) # filter to significant results
 ```
-## 3: Plot
+## Fig3C step 3: Plot
 
 The number of times that each individual GO term was significant was summed to examine whether there were any terms that were associated with multiple lncRNA promoters.
 This was plotted as a bar graph in Numbers.
