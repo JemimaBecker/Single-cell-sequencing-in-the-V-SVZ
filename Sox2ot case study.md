@@ -1,10 +1,21 @@
 # Sox2ot case study
 
+<img width="686" alt="Screenshot 2022-04-19 at 15 27 33" src="https://user-images.githubusercontent.com/67189202/164027237-f680add8-17f8-46da-86ae-012bf713197b.png">
+
+> Figure 4: Sox2ot case study
+> 
+> A: Expression of Sox2ot in mouse brain, determined by ISH. Red=high, green=low expression. Data from Allen Brain Atlas. 
+
+> B: Expression of Sox2ot in different cell types. Data from Mouse Organogenesis Cell Atlas. 
+
+> C: EnrichR output for WikiPathways 2019 Mouse (left) and WikiPathways 2021 Human (right), for genes with overrepresented binding sites in the mouse or human Sox2ot promoters. Binding site identified by PSCAN p<0.05.
+
+
 ## Fig 4C Binding site enrichment
 
-Enriched binding sites were identified by running PSCAN via webserver (http://159.149.160.88/pscan/) to find transcription factors whose binding sites were overrepresented in a window 450bp upstream and 50bp downstream of the transcription start site for the Human SOX2-OT and Mouse Sox2ot.
+- Enriched binding sites were identified by running PSCAN via webserver (http://159.149.160.88/pscan/) to find transcription factors whose binding sites were overrepresented in a window 450bp upstream and 50bp downstream of the transcription start site for the Human SOX2-OT and Mouse Sox2ot.
 
-EnrichR was run on overrepresented binding site motif TFs with p<0.05.
+- EnrichR was run on overrepresented binding site motif TFs with p<0.05.
 
 1: Install packages
 ```{r}
@@ -22,7 +33,8 @@ if (websiteLive) head(dbs)
 ```
 2: Load data
 
-This can also be done by reading in a .csv file of the gene names
+- This can also be done by reading in a .csv file of the gene names
+
 ```{r}
 query_genes<-c("OVOL2"	,"HOXA10"	,"CDX4"	,"ZNF684"	,"HOXD9"	,"Rara"	,"CDX1"	,"GATA1"	,"SOX10"	,"FOXE1"	,"RARA"	,"PITX2"	,"OTX2"	,"CDX2"	,"SOX13"	,"SOX9"	,"SOX18"	,"PROX1"	,"SRF"	,"SOX2"	,"Zic1"	,"PITX1"	,"HOXC12"	,"EWSR1-FLI1"	,"Sox6"	,"HNF4A"	,"Foxd3"	,"RXRA"	,"Sox3"	,"Nfe2l2"	,"IRF9"	,"HOXD10"	,"ZNF384"	,"HOXC10"	,"CLOCK"	,"Zic2"	,"RARA")
 ```
