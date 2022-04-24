@@ -1,11 +1,17 @@
-# Fig4. Sox2ot case study
+# Sox2ot case study
 
-
+## Figure 4: Sox2ot case study
+|Figure 4: Sox2ot case study|
+| --- |
+| <img width="686" alt="Screenshot 2022-04-19 at 15 27 33" src="https://user-images.githubusercontent.com/67189202/164027237-f680add8-17f8-46da-86ae-012bf713197b.png"> |
+| A: Expression of Sox2ot in mouse brain, determined by ISH. Red=high, green=low expression. Data from Allen Brain Atlas. |
+| B: Expression of Sox2ot in different cell types. Data from Mouse Organogenesis Cell Atlas. |
+| C: EnrichR output for WikiPathways 2019 Mouse (left) and WikiPathways 2021 Human (right), for genes with overrepresented binding sites in the mouse or human Sox2ot promoters. Binding site identified by PSCAN p<0.05. |
 
 ## Binding site enrichment
 
 - Enriched binding sites were identified by running PSCAN via webserver (http://159.149.160.88/pscan/) to find transcription factors whose binding sites were overrepresented in a window 450bp upstream and 50bp downstream of the transcription start site for the Human SOX2-OT and Mouse Sox2ot.
-- EnrichR was run on overrepresented binding site motif TFs with p<0.05.
+- EnrichR was run on transcription factors with overrepresented binding site motifs (p<0.05).
 
 1: Install packages
 ```{r}
@@ -78,16 +84,10 @@ if (websiteLive) plotEnrich(enriched[["WikiPathway_2021_Human"]],
                             title = "Enrichment analysis for SOX2OT binding motifs in Human"
 )
 ```
-## Figure 4: Sox2ot case study
-|Figure 4: Sox2ot case study|
-| --- |
-| <img width="686" alt="Screenshot 2022-04-19 at 15 27 33" src="https://user-images.githubusercontent.com/67189202/164027237-f680add8-17f8-46da-86ae-012bf713197b.png"> |
-| A: Expression of Sox2ot in mouse brain, determined by ISH. Red=high, green=low expression. Data from Allen Brain Atlas. |
-| B: Expression of Sox2ot in different cell types. Data from Mouse Organogenesis Cell Atlas. |
-| C: EnrichR output for WikiPathways 2019 Mouse (left) and WikiPathways 2021 Human (right), for genes with overrepresented binding sites in the mouse or human Sox2ot promoters. Binding site identified by PSCAN p<0.05. |
 
 ## References
 
+- Allen Institute for Brain Science (2004). Allen Mouse Brain Atlas [dataset]. Available from mouse.brain-map.org.Allen Institute for Brain Science (2011).
 - Cao, J., Spielmann, M., Qiu, X. et al. The single-cell transcriptional landscape of mammalian organogenesis. Nature 566, 496–502 (2019). https://doi.org/10.1038/s41586-019-0969-x
 - Chen EY, Tan CM, Kou Y, Duan Q, Wang Z, Meirelles GV, Clark NR, Ma'ayan A. Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool. BMC Bioinformatics. 2013; 128(14).
 - Lein, E., Hawrylycz, M., Ao, N. et al. Genome-wide atlas of gene expression in the adult mouse brain. Nature 445, 168–176 (2007). https://doi.org/10.1038/nature05453
