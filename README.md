@@ -11,10 +11,10 @@ Jemima Becker<sup>1</sup>, Bin Sun<sup>2</sup>, Farah Alammari<sup>3,4</sup>, Wi
 
 ## Key points
 
-•	lncRNAs abound in the ventricular-subventricular zone
-•	The functions of lncRNAs are obscure, but are implicated in cancer
-•	scRNAseq data has resolved the expression patterns of many V-SVZ lncRNAs
-•	scRNAseq data suggest lncRNAs function in stem cell maintenance and activation
+- lncRNAs abound in the ventricular-subventricular zone
+- The functions of lncRNAs are obscure, but are implicated in cancer
+- scRNAseq data has resolved the expression patterns of many V-SVZ lncRNAs
+- scRNAseq data suggest lncRNAs function in stem cell maintenance and activation
 
 ## Summary 
 
