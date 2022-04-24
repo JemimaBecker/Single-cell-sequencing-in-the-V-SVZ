@@ -96,3 +96,8 @@ plot1 <-   EnhancedVolcano(DV_DE_ncRNA,
     drawConnectors = TRUE,
     widthConnectors = 0.75)
 ```
+
+## All citations
+Cebrian-Silla, A., Nascimento, M.A., Redmond, S.A., Mansky, B., Wu, D., Obernier, K., Romero Rodriguez, R., Gonzalez-Granero, S., García-Verdugo, J.M., Lim, D.A., et al. (2021). Single-cell analysis of the ventricular-subventricular zone reveals signatures of dorsal and ventral adult neurogenesis. ELife 10, e67436.
+Howe, K.L., Achuthan, P., Allen, J., Allen, J., Alvarez-Jarreta, J., Amode, M.R., Armean, I.M., Azov, A.G., Bennett, R., Bhai, J., et al. (2021). Ensembl 2021. Nucleic Acids Research 49, D884–D891. https://doi.org/10.1093/nar/gkaa942.
+Blighe, K, S Rana, and M Lewis. 2018. “EnhancedVolcano: Publication-ready volcano plots with enhanced colouring and labeling.” https://github.com/kevinblighe/EnhancedVolcano.
