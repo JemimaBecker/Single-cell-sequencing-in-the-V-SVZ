@@ -1,9 +1,6 @@
----
-title: "All together"
-author: "Jemima Becker"
-date: "24/03/2022"
-output: html_document
----
+# Sum all ranks
+
+this sums the "Cumulative occurences" (defined in the paper) for each gene for each categeory. The input files for this code are generated in the other .mds in this folder.
 
 ```{r setup, include=FALSE}
 names_sums_celltype <- celltype_summed_ranks[,c(1,11)]
