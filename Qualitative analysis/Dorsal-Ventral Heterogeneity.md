@@ -10,14 +10,9 @@
 |---|---|
 | <img width="972" alt="Screenshot 2022-02-22 at 16 34 12" src="https://user-images.githubusercontent.com/67189202/155176574-f06272cc-a0e5-4b35-8915-96aa80ef7d03.png"> | <img width="971" alt="Screenshot 2022-02-22 at 16 35 36" src="https://user-images.githubusercontent.com/67189202/155176827-d675bcc1-ff7b-418e-9a3e-0b959367f39c.png"> |
 
-## Papers
-
-Cebrian-Silla, A., Nascimento, M.A., Redmond, S.A., Mansky, B., Wu, D., Obernier, K., Romero Rodriguez, R., Gonzalez-Granero, S., García-Verdugo, J.M., Lim, D.A., et al. (2021). Single-cell analysis of the ventricular-subventricular zone reveals signatures of dorsal and ventral adult neurogenesis. ELife 10, e67436.
-
 ## Code
 
-
-load the data
+load the data - Cebrian-Silla et al., (2021) Supplemetary file 5, available online
 ```{r setup, include=FALSE}
 library(dplyr)
 library(readr)
@@ -98,6 +93,6 @@ plot1 <-   EnhancedVolcano(DV_DE_ncRNA,
 ```
 
 ## All citations
-Cebrian-Silla, A., Nascimento, M.A., Redmond, S.A., Mansky, B., Wu, D., Obernier, K., Romero Rodriguez, R., Gonzalez-Granero, S., García-Verdugo, J.M., Lim, D.A., et al. (2021). Single-cell analysis of the ventricular-subventricular zone reveals signatures of dorsal and ventral adult neurogenesis. ELife 10, e67436.
-Howe, K.L., Achuthan, P., Allen, J., Allen, J., Alvarez-Jarreta, J., Amode, M.R., Armean, I.M., Azov, A.G., Bennett, R., Bhai, J., et al. (2021). Ensembl 2021. Nucleic Acids Research 49, D884–D891. https://doi.org/10.1093/nar/gkaa942.
-Blighe, K, S Rana, and M Lewis. 2018. “EnhancedVolcano: Publication-ready volcano plots with enhanced colouring and labeling.” https://github.com/kevinblighe/EnhancedVolcano.
+- Cebrian-Silla, A., Nascimento, M.A., Redmond, S.A., Mansky, B., Wu, D., Obernier, K., Romero Rodriguez, R., Gonzalez-Granero, S., García-Verdugo, J.M., Lim, D.A., et al. (2021). Single-cell analysis of the ventricular-subventricular zone reveals signatures of dorsal and ventral adult neurogenesis. ELife 10, e67436.
+- Howe, K.L., Achuthan, P., Allen, J., Allen, J., Alvarez-Jarreta, J., Amode, M.R., Armean, I.M., Azov, A.G., Bennett, R., Bhai, J., et al. (2021). Ensembl 2021. Nucleic Acids Research 49, D884–D891. https://doi.org/10.1093/nar/gkaa942.
+- Blighe, K, S Rana, and M Lewis. 2018. “EnhancedVolcano: Publication-ready volcano plots with enhanced colouring and labeling.” https://github.com/kevinblighe/EnhancedVolcano.
