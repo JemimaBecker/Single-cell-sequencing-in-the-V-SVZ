@@ -1,9 +1,9 @@
----
-title: "Activation and quiescenhce"
-author: "Jemima Becker"
-date: "24/03/2022"
-output: html_document
----
+# Stem cell activation
+
+Using the following papers:
+Mizrak et al., 2020
+Zywitza et al., 2018
+
 Load relevant packages
 ```{r}
 library(readr)
@@ -18,7 +18,8 @@ ensEMBL2id <- getBM(attributes=c('ensembl_gene_id', 'external_gene_name', 'descr
                     mart = ensembl)
 ```
 
-# Mizrak et al 2020
+### Mizrak et al 2020
+
 Table S1. Binomial Test Results Showing the Cell-Type Specificity of Genes in OB Neuron Subtypes and V-SVZ Neuronal Lineage Clusters in Different Samples, Related to Figures 1, 2, 3, and S1.
 need to do some more formatting here to isolate the specific datasets - many many tabs on this spreadsheet
 just take the sheets that represetn aNSCs
@@ -51,7 +52,10 @@ mizrak_aNSC_GCERT <- mizrak_aNSC_GCERT %>% dplyr::filter(mizrak_aNSC_GCERT$`Mizr
 mizrak_aNSC_SCOPE <- mizrak_aNSC_SCOPE %>% dplyr::filter(mizrak_aNSC_SCOPE$`Mizrak SCOPE FDR` < 0.05)
 ```
 
-# Zywitza et al 2018
+### Zywitza et al 2018
+
+load sheets of the table individually to see sheets for aNSCs and qNSCs
+
 ```{r}
 scl8_aNSCs_Table_1 <- read_csv("Zywitza et al 2018/mmc4 (1)/scl8_aNSCs-Table 1.csv")
 scl7_qNSCs_Table_1 <- read_csv("Zywitza et al 2018/mmc4 (1)/scl7_qNSCs-Table 1.csv")
@@ -67,6 +71,7 @@ colnames(zywitza_aNSCs)[c(1:3)] <- c("external_gene_name","Zywitza p value","Zyw
 zywitza_aNSCs <- zywitza_aNSCs[,c(1:3)]
 zywitza_aNSCs <- zywitza_aNSCs %>% dplyr::filter(zywitza_aNSCs$`Zywitza p value` < 0.05)
 ```
+merge the fules for different datasets by gene name
 ```{r}
 merge_activation <- merge(zywitza_aNSCs, mizrak_aNSC_NESFLPO,
                           by.x="external_gene_name",
@@ -106,7 +111,7 @@ merge_activation_ncRNA <- merge_activation %>% dplyr::filter(merge_activation$ge
 merge_activation_p <- merge_activation_ncRNA[,c(1,2,4,6,8,11:16)]
 merge_activation_p$`Mizrak NESFLPO FDR` <- as.numeric(merge_activation_p$`Mizrak NESFLPO FDR`)
 ```
-
+calculate Cumulative Occurences (CO) by summing the number of timnes that a lncRNA has a results with p<0.05. All p values greater than 0.05 are converted to NAs, and then 0; all p values less than 0.05 are converted to 1 and then summed accros the row.
 ```{r}
 rank_calc <- merge_activation_p
 names <- rank_calc[,c(1,6:11)]
@@ -124,3 +129,8 @@ activation_summed_ranks <- cbind(names,
 ```{r}
 write.csv(activation_summed_ranks,"OUTPUT_activation.csv")
 ```
+## Citations
+
+- Howe, K.L., Achuthan, P., Allen, J., Allen, J., Alvarez-Jarreta, J., Amode, M.R., Armean, I.M., Azov, A.G., Bennett, R., Bhai, J., et al. (2021). Ensembl 2021. Nucleic Acids Research 49, D884–D891. https://doi.org/10.1093/nar/gkaa942.
+- Mizrak, D., Bayin, N.S., Yuan, J., Liu, Z., Suciu, R.M., Niphakis, M.J., Ngo, N., Lum, K.M., Cravatt, B.F., Joyner, A.L., et al. (2020). Single-Cell Profiling and SCOPE-Seq Reveal Lineage Dynamics of Adult Ventricular-Subventricular Zone Neurogenesis and NOTUM as a Key Regulator. Cell Rep 31, 107805. https://doi.org/10.1016/j.celrep.2020.107805.
+- Zywitza, V., Misios, A., Bunatyan, L., Willnow, T.E., and Rajewsky, N. (2018). Single-Cell Transcriptomics Characterizes Cell Types in the Subventricular Zone and Uncovers Molecular Defects Impairing Adult Neurogenesis. Cell Reports 25, 2457-2469.e8. https://doi.org/10.1016/j.celrep.2018.11.003.
