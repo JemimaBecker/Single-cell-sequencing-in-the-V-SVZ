@@ -1,7 +1,7 @@
 # Data summary for scRNAseq meta-analysis 
 
-## Fig 4: ScRNAseq data summary
-| Figure 3: Data summary for scRNAseq meta-analysis. |
+## Fig 5: ScRNAseq data summary
+| Figure 5: Data summary for scRNAseq meta-analysis. |
 | --- |
 | <img width="639" alt="Screenshot 2022-04-19 at 13 57 50" src="https://user-images.githubusercontent.com/67189202/164009216-30ee741b-264d-4d9c-8446-53f16fcbf2ef.png"> |
 | A: Total number of studies in which each lncRNA is differentially expressed across all categories, data is expressed as log2(number of lncRNAs) vs the number of studies that each gene was differentially expressed in. |
