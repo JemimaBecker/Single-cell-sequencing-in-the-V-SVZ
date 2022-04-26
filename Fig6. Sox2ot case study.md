@@ -1,7 +1,7 @@
 # Sox2ot case study
 
-## Figure 4: Sox2ot case study
-|Figure 4: Sox2ot case study|
+## Figure 6: Sox2ot case study
+|Figure 6: Sox2ot case study|
 | --- |
 | <img width="686" alt="Screenshot 2022-04-19 at 15 27 33" src="https://user-images.githubusercontent.com/67189202/164027237-f680add8-17f8-46da-86ae-012bf713197b.png"> |
 | A: Expression of Sox2ot in mouse brain, determined by ISH. Red=high, green=low expression. Data from Allen Brain Atlas. |
