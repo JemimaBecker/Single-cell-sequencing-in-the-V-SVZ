@@ -1,11 +1,8 @@
----
-title: "findallmarkers aNSCs"
-author: "Jemima Becker"
-date: "2022-08-27"
-output: html_document
----
+# Calculation of cumulative occurences for aNSC-enriched lncRNAs
 
-This code combines datasets listing genes that have been found via FindAllMarkers to be enriched within aNSC clusters and calculates Cumulative Occurence (CO) as discussed in the paper.
+Input data is results from FindAllMarkers listing lncRNAs that are significantly enriched in aNSC clusters relative to other cell types.
+
+## Code
 
 1: Setup
 ```{r setup, include=FALSE}
@@ -46,7 +43,7 @@ FindAll_aNSCs_ranksum <- merge(FindAll_aNSCs_ranksum, ensEMBL2id,
 write.csv(FindAll_aNSCs_ranksum,"FindAll_aNSCs_ranksum.csv")
 ```
 
-Data used from:
-del Águila, Á., Adam, M., Ullom, K., Shaw, N., Qin, S., Ehrman, J., Nardini, D., Salomone, J., Gebelein, B., Lu, Q.R., et al. (2022). Olig2 defines a subset of neural stem cells that produce specific olfactory bulb interneuron subtypes in the subventricular zone of adult mice. Development 149, dev200028. https://doi.org/10.1242/dev.200028.
-Mizrak, D., Bayin, N.S., Yuan, J., Liu, Z., Suciu, R., Niphakis, M.J., Ngo, N., Lum, K.M., Cravatt, B.F., Joyner, A.L., et al. (2019a). Single-cell profiling and SCOPE-seq reveal the lineage dynamics of adult neurogenesis and NOTUM as a key V-SVZ regulator. BioRxiv 770610. https://doi.org/10.1101/770610.
-Mizrak, D., Levitin, H.M., Delgado, A.C., Crotet, V., Yuan, J., Chaker, Z., Silva-Vargas, V., Sims, P.A., and Doetsch, F. (2019b). Single-Cell Analysis of Regional Differences in Adult V-SVZ Neural Stem Cell Lineages. Cell Reports 26, 394-406.e5. https://doi.org/10.1016/j.celrep.2018.12.044.
+## Data references
+- del Águila, Á., Adam, M., Ullom, K., Shaw, N., Qin, S., Ehrman, J., Nardini, D., Salomone, J., Gebelein, B., Lu, Q.R., et al. (2022). Olig2 defines a subset of neural stem cells that produce specific olfactory bulb interneuron subtypes in the subventricular zone of adult mice. Development 149, dev200028. https://doi.org/10.1242/dev.200028.
+- Mizrak, D., Bayin, N.S., Yuan, J., Liu, Z., Suciu, R., Niphakis, M.J., Ngo, N., Lum, K.M., Cravatt, B.F., Joyner, A.L., et al. (2019a). Single-cell profiling and SCOPE-seq reveal the lineage dynamics of adult neurogenesis and NOTUM as a key V-SVZ regulator. BioRxiv 770610. https://doi.org/10.1101/770610.
+- Mizrak, D., Levitin, H.M., Delgado, A.C., Crotet, V., Yuan, J., Chaker, Z., Silva-Vargas, V., Sims, P.A., and Doetsch, F. (2019b). Single-Cell Analysis of Regional Differences in Adult V-SVZ Neural Stem Cell Lineages. Cell Reports 26, 394-406.e5. https://doi.org/10.1016/j.celrep.2018.12.044.
