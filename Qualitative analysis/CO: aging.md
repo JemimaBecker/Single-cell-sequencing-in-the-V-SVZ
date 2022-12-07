@@ -1,4 +1,4 @@
-Calculation of cumulative occurences for lncRNAs that assumulate with aging
+# Calculation of cumulative occurences for lncRNAs that accumulate with aging
 
 
 ```{r}
